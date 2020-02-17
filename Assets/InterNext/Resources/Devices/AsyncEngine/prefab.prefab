@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: c509d96dcc4ddc445ad03f47ff172ef1, type: 3}
+  - {fileID: 2100000, guid: ac030944730572f449cb67f7431f62ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,7 +365,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: c509d96dcc4ddc445ad03f47ff172ef1, type: 3}
+  - {fileID: 2100000, guid: 591ffa79000e55b419c5500fcb6d0eac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,7 +442,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: c509d96dcc4ddc445ad03f47ff172ef1, type: 3}
+  - {fileID: 2100000, guid: ac030944730572f449cb67f7431f62ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1242,7 +1242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2238889808685761972}
   m_Layer: 0
-  m_Name: "\u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C v12"
+  m_Name: prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

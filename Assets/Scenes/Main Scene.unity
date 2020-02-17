@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: teleportAction.actionPath
@@ -675,7 +675,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &117478080
 MonoBehaviour:
@@ -762,6 +762,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159642844}
   m_CullTransparentMesh: 0
+--- !u!1001 &161685888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2238889808685603284, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_Name
+      value: prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685603284, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39107275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.010000054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5570743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238889808685761972, guid: e7b073fa0c9445a4b972520be2fd8d01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7b073fa0c9445a4b972520be2fd8d01, type: 3}
 --- !u!1001 &198542369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2520,7 +2594,7 @@ GameObject:
   - component: {fileID: 600562193}
   - component: {fileID: 600562194}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button EM Fields
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2729,7 +2803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2989,7 +3063,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &735434410
 GameObject:
@@ -3039,7 +3113,7 @@ GameObject:
   - component: {fileID: 743283306}
   - component: {fileID: 743283307}
   m_Layer: 0
-  m_Name: Button (2)
+  m_Name: Button Forces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3882,7 +3956,7 @@ GameObject:
   - component: {fileID: 930256297}
   - component: {fileID: 930256298}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Button Disassemble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4252,7 +4326,7 @@ RectTransform:
   - {fileID: 327045218}
   - {fileID: 1324193534}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4502,7 +4576,7 @@ Transform:
   - {fileID: 886355512}
   - {fileID: 1138244804}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1025578197
 PrefabInstance:
@@ -5384,7 +5458,7 @@ GameObject:
   - component: {fileID: 1211126621}
   - component: {fileID: 1211126622}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: Button Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5451,7 +5525,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211126619}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117478080}
+        m_MethodName: TogglePower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211126619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7445,7 +7530,7 @@ GameObject:
   - component: {fileID: 1610691902}
   - component: {fileID: 1610691901}
   m_Layer: 0
-  m_Name: Button (4)
+  m_Name: Button Failure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7834,7 +7919,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 1, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1649341094
 MonoBehaviour:
