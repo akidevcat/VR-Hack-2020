@@ -26,6 +26,7 @@ public struct INDevice
     public List<float> details_offsets;
     public List<int> rotation_axis;
     public List<DetailsGroup> details_groups;
+    public List<float> details_override_pivot;
 
     public Vector3 PivotOffset
     {
@@ -43,13 +44,22 @@ public struct INDevice
     }
 }
 
+public struct INInfo
+{
+    public string base_information;
 
+    public string[] SplitPages()
+    {
+        return base_information.Split(new string[] { "$PAGE$" }, System.StringSplitOptions.RemoveEmptyEntries);
+    }
+}
 
 public class InterNextCore : MonoBehaviour
 {
     public static bool PowerDevice = false;
     public string CurrentDevice = "AsyncEngine";
     public INDevice LoadedDevice;
+    public INInfo LoadedInfo;
     private bool[] DetailsLayers;
     private Vector3[] DetailsRealOffsets;
     private GameObject InstancedDevice;
@@ -67,12 +77,22 @@ public class InterNextCore : MonoBehaviour
 
     }
 
+    private Vector3 GetObjectCenter(GameObject obj)
+    {
+        var mrend = GetComponent<MeshRenderer>();
+        if (mrend == null)
+            return GetObjectCenter(transform.GetChild(0).gameObject);
+        else
+            return mrend.bounds.center;
+    }
+
     void LoadDevice(string name)
     {
         var textPrefab = Resources.Load<GameObject>("Common/Prefabs/TMP");
 
         string json = Resources.Load<TextAsset>($"Devices/{name}/common").text;
         LoadedDevice = JsonUtility.FromJson<INDevice>(json);
+        LoadedInfo = JsonUtility.FromJson<INInfo>(Resources.Load<TextAsset>($"Devices/{name}/text_ru").text);
         var prefab = Resources.Load<GameObject>($"Devices/{name}/prefab");
         InstancedDevice = Instantiate(prefab);
         InstancedDeviceT = InstancedDevice.transform;
@@ -98,7 +118,9 @@ public class InterNextCore : MonoBehaviour
             if (!child.CompareTag("DeviceIgnore") && !child.CompareTag("DetailPivot"))
             {
                 var pivot = new GameObject($"Detail {index}");
-                pivot.transform.position = child.gameObject.GetComponent<MeshRenderer>().bounds.center + InstancedDeviceT.position;
+                var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+                //pivot.transform.position = GetObjectCenter(child.gameObject) + InstancedDeviceT.position;
+                pivot.transform.position = meshRenderer.bounds.center + InstancedDeviceT.position;
                 pivot.transform.SetParent(InstancedDeviceT, true);
                 child.SetParent(pivot.transform, true);
                 pivot.tag = "DetailPivot";
@@ -118,6 +140,7 @@ public class InterNextCore : MonoBehaviour
         }
 
         FindObjectOfType<InterNextUI>().OnSbarUpdate();
+        FindObjectOfType<InterNextUI>().Initialize();
     }
 
     IEnumerator LerpMove(Transform t, Vector3 target, Vector3 start, float time, float startTime)
@@ -178,25 +201,25 @@ public class InterNextCore : MonoBehaviour
 
     public void ShowGroup(int[] details, bool hide_others)
     {
-        if (hide_others)
+        int index = 0;
+        for (int i = 0; i < InstancedDeviceT.childCount; i++)
         {
-            int index = 0;
-            for (int i = 0; i < InstancedDeviceT.childCount; i++)
+            var child = InstancedDeviceT.GetChild(i);
+
+            if (!child.CompareTag("DeviceIgnore"))
             {
-                var child = InstancedDeviceT.GetChild(i);
-
-                if (!child.CompareTag("DeviceIgnore"))
+                if (ArrayContains(details, index))
                 {
-                    if (ArrayContains(details, index))
-                        child.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+                    if (hide_others)
+                        child.GetChild(0).gameObject.SetActive(true);
                     else
-                        child.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-                    index++;
+                        child.GetChild(0).gameObject.SetActive(!child.GetChild(0).gameObject.activeSelf);
                 }
+                else if (hide_others)
+                    child.GetChild(0).gameObject.SetActive(false);
+                
+                index++;
             }
-        } else
-        {
-
         }
     }
 
@@ -209,7 +232,8 @@ public class InterNextCore : MonoBehaviour
 
             if (!child.CompareTag("DeviceIgnore"))
             {
-                child.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+                //child.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+                child.GetChild(0).gameObject.SetActive(true);
                 index++;
             }
         }
