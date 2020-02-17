@@ -102,6 +102,6 @@
 		}
 	],
 	"details_override_pivot": [
-		{ "index": 0, "offset": [0, 0, 0] }
+		{ "index": 19, "offset": [0, 0.6601602, 0] }
 	]
 }

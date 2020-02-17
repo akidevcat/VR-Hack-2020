@@ -26,7 +26,7 @@ public struct INDevice
     public List<float> details_offsets;
     public List<int> rotation_axis;
     public List<DetailsGroup> details_groups;
-    public List<float> details_override_pivot;
+    public List<INPivotOverride> details_override_pivot;
 
     public Vector3 PivotOffset
     {
@@ -54,12 +54,20 @@ public struct INInfo
     }
 }
 
+[System.Serializable]
+public struct INPivotOverride
+{
+    public int index;
+    public float[] offset;
+}
+
 public class InterNextCore : MonoBehaviour
 {
     public static bool PowerDevice = false;
     public string CurrentDevice = "AsyncEngine";
     public INDevice LoadedDevice;
     public INInfo LoadedInfo;
+    public Dictionary<int, Vector3> OverridedOffsets;
     private bool[] DetailsLayers;
     private Vector3[] DetailsRealOffsets;
     private GameObject InstancedDevice;
@@ -100,6 +108,10 @@ public class InterNextCore : MonoBehaviour
         InstancedDeviceT.position = LoadedDevice.PivotOffset;
         InstancedDeviceT.localScale = LoadedDevice.Scale;
 
+        OverridedOffsets = new Dictionary<int, Vector3>();
+        for (int i = 0; i < LoadedDevice.details_override_pivot.Count; i++)
+            OverridedOffsets.Add(LoadedDevice.details_override_pivot[i].index, new Vector3(LoadedDevice.details_override_pivot[i].offset[0], LoadedDevice.details_override_pivot[i].offset[1], LoadedDevice.details_override_pivot[i].offset[2]));
+
         DetailsLayers = new bool[LoadedDevice.details_groups.Count];
 
         LoadInterface();
@@ -119,8 +131,10 @@ public class InterNextCore : MonoBehaviour
             {
                 var pivot = new GameObject($"Detail {index}");
                 var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
-                //pivot.transform.position = GetObjectCenter(child.gameObject) + InstancedDeviceT.position;
-                pivot.transform.position = meshRenderer.bounds.center + InstancedDeviceT.position;
+                if (OverridedOffsets.ContainsKey(index))
+                    pivot.transform.position = OverridedOffsets[index] + InstancedDeviceT.position;
+                else
+                    pivot.transform.position = meshRenderer.bounds.center + InstancedDeviceT.position;
                 pivot.transform.SetParent(InstancedDeviceT, true);
                 child.SetParent(pivot.transform, true);
                 pivot.tag = "DetailPivot";
@@ -138,6 +152,8 @@ public class InterNextCore : MonoBehaviour
                 index++;
             }
         }
+
+        
 
         FindObjectOfType<InterNextUI>().OnSbarUpdate();
         FindObjectOfType<InterNextUI>().Initialize();
