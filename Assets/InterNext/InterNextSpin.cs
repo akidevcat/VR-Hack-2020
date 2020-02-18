@@ -17,5 +17,11 @@ public class InterNextSpin : MonoBehaviour
             transform.Rotate(0, Speed, 0, Space.World);
         if (Axis == 2)
             transform.Rotate(0, 0, Speed, Space.World);
+        if (Axis == 3)
+            transform.Rotate(-Speed, 0, 0, Space.World);
+        if (Axis == 4)
+            transform.Rotate(0, -Speed, 0, Space.World);
+        if (Axis == 5)
+            transform.Rotate(0, 0, -Speed, Space.World);
     }
 }
