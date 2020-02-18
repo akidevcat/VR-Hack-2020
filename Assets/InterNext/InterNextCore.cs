@@ -63,6 +63,7 @@ public struct INPivotOverride
 
 public class InterNextCore : MonoBehaviour
 {
+    public GameObject CrossPlane;
     public static bool PowerDevice = false;
     public string CurrentDevice = "AsyncEngine";
     public INDevice LoadedDevice;
@@ -137,6 +138,8 @@ public class InterNextCore : MonoBehaviour
                     pivot.transform.position = meshRenderer.bounds.center + InstancedDeviceT.position;
                 pivot.transform.SetParent(InstancedDeviceT, true);
                 child.SetParent(pivot.transform, true);
+                var cutc = child.gameObject.AddComponent<OnePlaneCuttingController>();
+                cutc.plane = CrossPlane;
                 pivot.tag = "DetailPivot";
 
                 var spin = pivot.AddComponent<InterNextSpin>();
