@@ -13,6 +13,7 @@ public class InterNextUI : MonoBehaviour
     public Text InfoText;
     private string[] SplittedInfoText;
     private int page = 0;
+    private int elementsPage = 0;
 
     private string IntArrToStr(int[] arr)
     {
@@ -51,9 +52,24 @@ public class InterNextUI : MonoBehaviour
         UpdatePage();
     }
 
+    public void ShowNextElementsPage()
+    {
+        if (elementsPage < INCore.LoadedDevice.details_groups.Count - 1)
+            elementsPage++;
+        OnSbarUpdate();
+    }
+
+    public void ShowPrevElementsPage()
+    {
+        if (elementsPage > 0)
+            elementsPage--;
+        OnSbarUpdate();
+    }
+
     public void OnSbarUpdate()
     {
-        int firstIndex = (int)(Sbar.value * (INCore.LoadedDevice.details_groups.Count - 1));
+        //int firstIndex = (int)(Sbar.value * (INCore.LoadedDevice.details_groups.Count - 1));
+        int firstIndex = elementsPage;
         for (int i = firstIndex; i < firstIndex + 5; i++)
         {
             if (i >= INCore.LoadedDevice.details_groups.Count + 1)

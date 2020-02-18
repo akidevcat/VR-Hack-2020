@@ -1,7 +1,7 @@
 {
 	"name": "Асинхронный Двигатель",
 	"pivotoffset_x": 0,
-	"pivotoffset_y": 0,
+	"pivotoffset_y": 0.01,
 	"pivotoffset_z": 0,
 	"rotation_x": -0.7071068,
 	"rotation_y": 0,
@@ -66,7 +66,7 @@
 		},
 		{
 			"name": "Статор",
-			"details_id": [0, 7, 8, 9],
+			"details_id": [0, 7, 8, 9, 17, 18, 19],
 			"hide_others": true
 		},
 		{
@@ -81,7 +81,12 @@
 		},
 		{
 			"name": "ЭМ Поле",
-			"details_id": [20],
+			"details_id": [20, 21],
+			"hide_others": false
+		},
+		{
+			"name": "Направления Вращения",
+			"details_id": [16],
 			"hide_others": false
 		}
 	],
@@ -90,7 +95,10 @@
 			"index": 20, "offset": [0, 0.6601602, 0] 
 		},
 		{ 
-			"index": 19, "offset": [0, 0.6601602, 0] 
+			"index": 21, "offset": [0, 0.6601602, 0] 
+		},
+		{ 
+			"index": 16, "offset": [0, 0.6601602, 0] 
 		}
 	]
 }

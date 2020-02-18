@@ -133,9 +133,9 @@ public class InterNextCore : MonoBehaviour
                 var pivot = new GameObject($"Detail {index}");
                 var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
                 if (OverridedOffsets.ContainsKey(index))
-                    pivot.transform.position = OverridedOffsets[index] + InstancedDeviceT.position;
+                    pivot.transform.position = OverridedOffsets[index];
                 else
-                    pivot.transform.position = meshRenderer.bounds.center + InstancedDeviceT.position;
+                    pivot.transform.position = meshRenderer.bounds.center;
                 pivot.transform.SetParent(InstancedDeviceT, true);
                 child.SetParent(pivot.transform, true);
                 var cutc = child.gameObject.AddComponent<OnePlaneCuttingController>();
@@ -180,6 +180,8 @@ public class InterNextCore : MonoBehaviour
             return;
         if (!disassembled)
         {
+            CrossPlane.transform.position = new Vector3(0, 1000, 0);
+            CrossPlane.transform.eulerAngles = new Vector3(90, 0, 0);
             int index = 0;
             for (int i = 0; i < InstancedDeviceT.childCount; i++)
             {
@@ -195,6 +197,8 @@ public class InterNextCore : MonoBehaviour
             }
         } else
         {
+            CrossPlane.transform.position = new Vector3(0, 1.5f, 0);
+            CrossPlane.transform.eulerAngles = new Vector3(90, 0, 0);
             int index = 0;
             for (int i = 0; i < InstancedDeviceT.childCount; i++)
             {
